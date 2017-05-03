@@ -12,18 +12,18 @@ Program does not peranently delete files. It send them to trash.
  
 <b>Options</b>
 
-  -d, --set-defaults 
+  -d, --set-defaults =>
           Creates a file with preditermined file endigs wich will be deleted.
           
-  -l, --list-endings 
+  -l, --list-endings =>
           Lists all endings, that are currently saved in endings file (defaults.txt).
 
-  -a, --add-endings [ending, ...]
+  -a, --add-endings [ending, ...] =>
           Adds endigs you enter to the defaults.txt file.
           
-  -r, --remove-endings [ending, ...]
+  -r, --remove-endings [ending, ...] =>
           Removes endings you enter from defaults.txt file.<br><b>Warning</b><br>
           There is a bug with this option (-r, --remove-endings)! If you try to remove more that one ending at a time, endings will be duplicated.
                
-  -f, --folder [folder]
+  -f, --folder [folder] =>
           Specify folder in wich you want to delete files (default: /home/bostjan/Downloads)
