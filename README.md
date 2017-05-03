@@ -11,6 +11,7 @@ Program does not peranently delete files. It send them to trash.
   When you run the program for the first time, you need to run <b>python fileCleaner.py -d</b> to create file with file endings which will be deleted.
  
 <b>Options</b>
+
   -d, --set-defaults 
           Creates a file with preditermined file endigs wich will be deleted.
           
@@ -23,6 +24,7 @@ Program does not peranently delete files. It send them to trash.
   -r, --remove-endings [ending, ...]
           Removes endings you enter from defaults.txt file.
           <b>Warning</b>
+          
                There is a bug with this option! If you try to remove more that one ending at a time, endings will be duplicated.
                
   -f, --folder [folder]
