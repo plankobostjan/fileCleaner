@@ -25,8 +25,7 @@ Program creates a log file (same folder where program is located), where the dat
           Adds endigs you enter to the defaults.txt file.
           
   -r, --remove-endings [ending, ...] =>
-          Removes endings you enter from defaults.txt file.<br><b>Warning</b><br>
-          There is a bug with this option (-r, --remove-endings)! If you try to remove more that one ending at a time, endings will be duplicated.
+          Removes endings you enter from defaults.txt file.
                
   -f, --folder [folder] =>
           Specify folder in wich you want to delete files (default: /home/bostjan/Downloads)
