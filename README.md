@@ -16,7 +16,7 @@ Program creates a log file (same folder where program is located), where the dat
 <b>Options</b>
 
   -d, --set-defaults =>
-          Creates a file with preditermined file endigs.
+          Creates a file (defaults.txt) with preditermined file endigs.
           
   -l, --list-endings =>
           Lists all endings, that are currently saved in endings file (defaults.txt).
