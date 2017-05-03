@@ -19,22 +19,20 @@ def deleteFile(path, endings, log):
            if  filename.endswith(ending):
                send2trash.send2trash(path + filename)
                log.write("%s in %s was send to trash.\n" %(filename, path))
+               
 def deleteEndings(items):
-    f = open("defaults.txt", "r")
-    lines = f.readlines()
-    f.close()
-    
-    newLines = []
     print "Endings removed:"
     for item in items:
+        f = open("defaults.txt", "r")
+        lines = f.readlines()
+        f.close()
+        newLines = []
         print item
         for line in lines:
             newLines.append(' '.join([word for word in line.split() if word != item]))
-
-    f = open("defaults.txt", "w")
-    for line in newLines:
-        f.write("{}\n".format(line))
-    f.close()
+        f = open("defaults.txt", "w")
+        for line in newLines:
+            f.write("{}\n".format(line)))
 
 def defaults():
     #default file endings to delete
