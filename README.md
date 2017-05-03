@@ -8,7 +8,7 @@ Fell free to use this program.
 Program does not permanently delete files. It sends them to trash.
 
 <b>First run</b><br>
-  When you run the program for the first time, you need to run <b>python fileCleaner.py -d</b> to create file with file endings. File is create in same folder where program itself is located.
+  When you run the program for the first time, you need to run <b>python fileCleaner.py -d</b> to create file with file endings. File is created in the same folder where program itself is located.
   
 <b>Logs</b><br>
 Program creates a log file (same folder where program is located), where the data about deleted files is stored.
