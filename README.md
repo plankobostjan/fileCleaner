@@ -23,7 +23,7 @@ Program does not peranently delete files. It send them to trash.
           
   -r, --remove-endings [ending, ...]
           Removes endings you enter from defaults.txt file.<br><b>Warning</b><br>
-          There is a bug with this option! If you try to remove more that one ending at a time, endings will be duplicated.
+          There is a bug with this option (-r, --remove-endings)! If you try to remove more that one ending at a time, endings will be duplicated.
                
   -f, --folder [folder]
           Specify folder in wich you want to delete files (default: /home/bostjan/Downloads)
