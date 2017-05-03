@@ -5,7 +5,7 @@ Fell free to use this program.
 <b>BUT:</b><br>
   I don't guarantee that it will work for you. I'm also not responsible for damage (lost files, ...) that this program my couse.
 
-Program does not peranently delete files. It send them to trash.
+Program does not permanently delete files. It send them to trash.
 
 <b>First run</b><br>
   When you run the program for the first time, you need to run <b>python fileCleaner.py -d</b> to create file with file endings.
