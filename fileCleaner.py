@@ -13,12 +13,19 @@ def deleteEmptyLines():
     f.close()
                 
 def deleteFile(path, endings, log):
-    log.write(time.strftime("\n%a %d.%m.%y at %H:%M:%S\n"))
+    log.write(time.strftime("\nOn %a %d.%m.%Y at %H:%M:%S:\n"))
+    print time.strftime("On %a %d.%m.%Y at %H:%M:%S:")
     for filename in os.listdir(path):
         for ending in endings:
            if  filename.endswith(ending):
                send2trash.send2trash(path + filename)
                log.write("%s in %s was send to trash.\n" %(filename, path))
+               print "%s in %s was send to trash." %(filename, path)
+           else:
+            delete = False
+    if delete == False:
+        print "No files were deleted."
+        log.write("No files were deleted.\n")
                
 def deleteEndings(items):
     print "Endings removed:"
@@ -32,11 +39,12 @@ def deleteEndings(items):
             newLines.append(' '.join([word for word in line.split() if word != item]))
         f = open("defaults.txt", "w")
         for line in newLines:
-            f.write("{}\n".format(line)))
+            f.write("{}\n".format(line))
 
 def defaults():
     #default file endings to delete
     endings = {".iso", ".gz", ".tar", ".zip", ".rar", ".7z"}
+    
     f = file("defaults.txt", 'w')
     deleteContent(f)
     for ending in endings:
