@@ -128,7 +128,7 @@ def main():
         f.close()
     except:
         print "Something went wrog!\nProgram exited!"
-        print sys.exc_info()[0]
+        #print sys.exc_info()[0]
         sys.exit()
 
 if __name__ == "__main__":
