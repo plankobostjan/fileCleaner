@@ -28,4 +28,4 @@ Program creates a log file (clearLog.txt, same folder where program is located),
           Removes endings you enter from defaults.txt file.
                
   -f, --folder [folder] =>
-          Specify folder in wich you want to delete files (default: /home/bostjan/Downloads)
+          Specify folder in wich you want to delete files (default: /home/bostjan/Downloads/)
