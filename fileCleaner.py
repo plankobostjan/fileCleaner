@@ -13,6 +13,7 @@ def deleteEmptyLines():
     f.close()
                 
 def deleteFile(path, endings, log):
+    delete = 0
     log.write(time.strftime("\nOn %a %d.%m.%Y at %H:%M:%S:\n"))
     print time.strftime("On %a %d.%m.%Y at %H:%M:%S:")
     for filename in os.listdir(path):
@@ -21,9 +22,8 @@ def deleteFile(path, endings, log):
                send2trash.send2trash(path + filename)
                log.write("%s in %s was send to trash.\n" %(filename, path))
                print "%s in %s was send to trash." %(filename, path)
-           else:
-            delete = False
-    if delete == False:
+               delete += 1
+    if delete == 0:
         print "No files were deleted."
         log.write("No files were deleted.\n")
                
@@ -128,6 +128,7 @@ def main():
         f.close()
     except:
         print "Something went wrog!\nProgram exited!"
+        print sys.exc_info()[0]
         sys.exit()
 
 if __name__ == "__main__":
