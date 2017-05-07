@@ -33,16 +33,16 @@ def deleteFile(path, endings, log):
         print "No files were deleted in {}.".format(path)
         log.write("No files were deleted in {}.\n".format(path))
                
-def deleteEndings(items):
+def deleteEndings(endings_to_remove):
     print "Endings removed:"
-    for item in items:
+    for ending in endings_to_remove:
         f = open("defaults.txt", "r")
         lines = f.readlines()
         f.close()
         newLines = []
-        print item
+        print ending
         for line in lines:
-            newLines.append(' '.join([word for word in line.split() if word != item]))
+            newLines.append(' '.join([word for word in line.split() if word != ending]))
         f = open("defaults.txt", "w")
         for line in newLines:
             f.write("{}\n".format(line))
@@ -143,7 +143,7 @@ def main():
         f.close()
     except:
         print "Something went wrog!\nProgram exited!"
-        print sys.exc_info()[0]
+        #print sys.exc_info()[0]
         sys.exit()
 
 if __name__ == "__main__":
