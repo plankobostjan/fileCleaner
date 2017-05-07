@@ -4,6 +4,7 @@ import send2trash
 import subprocess
 import argparse
 import sys
+import getpass
 
 def deleteEmptyLines():
     with open('defaults.txt','a+') as f:
@@ -17,15 +18,20 @@ def deleteFile(path, endings, log):
     log.write(time.strftime("\nOn %a %d.%m.%Y at %H:%M:%S:\n"))
     print time.strftime("On %a %d.%m.%Y at %H:%M:%S:")
     for filename in os.listdir(path):
-        for ending in endings:
-           if  filename.endswith(ending):
-               send2trash.send2trash(path + filename)
-               log.write("%s in %s was send to trash.\n" %(filename, path))
-               print "%s in %s was send to trash." %(filename, path)
-               delete += 1
+        for f in excluded_files:
+            if f != filename:
+                for ending in endings:
+                   if  filename.endswith(ending):
+                       send2trash.send2trash(path + filename)
+                       log.write("{} in {} was send to trash.\n".format(filename, path))
+                       print "{} in {} was send to trash.".format(filename, path)
+                       delete += 1
+            else:
+                print "File {} excluded.".format(f)
+                log.write("File {} excluded.\n".format(f))
     if delete == 0:
-        print "No files were deleted."
-        log.write("No files were deleted.\n")
+        print "No files were deleted in {}.".format(path)
+        log.write("No files were deleted in {}.\n".format(path))
                
 def deleteEndings(items):
     print "Endings removed:"
@@ -43,7 +49,7 @@ def deleteEndings(items):
 
 def defaults():
     #default file endings to delete
-    endings = {".iso", ".gz", ".tar", ".zip", ".rar", ".7z"}
+    endings = {".iso", ".gz", ".tar", ".zip", ".rar", ".7z", ".deb"}
     
     f = file("defaults.txt", 'w')
     deleteContent(f)
@@ -63,7 +69,20 @@ def arguments():
     parser.add_argument("-l", "--list-endings", action="store_true", help="List all current endings.")
     parser.add_argument("-r", "--remove-endings", nargs="+", type=str, help="Remove endings.")
     parser.add_argument("-f", "--folder", type=str, help="Specify folder in wich you want to delete files.")
+    parser.add_argument("--exclude-file", type=str, nargs="+", help="Specify files to exclude.")
     args = parser.parse_args()
+
+    if args.add_endings is not None:
+        f = file("defaults.txt", "a+")
+        data = f.read()
+        print "Endings added:"
+        for ending in args.add_endings:
+            data += ending + "\n"
+            print ending
+        deleteContent(f)
+        f.write(data)
+        f.close()
+        sys.exit()
 
     if args.set_defaults is True:
         defaults()
@@ -78,22 +97,11 @@ def arguments():
         data=''
         while '' in rem:
             rem.remove('')
-        for el in rem:
+        for el in rem[:-1]:
             data += el + "\n"
+        data += rem[-1]
         print "Current endings are:"
         print data
-        f.close()
-        sys.exit()
-        
-    if args.add_endings is not None:
-        f = file("defaults.txt", "a+")
-        data = f.read()
-        print "Endings added:"
-        for ending in args.add_endings:
-            data += ending + "\n"
-            print ending
-        deleteContent(f)
-        f.write(data)
         f.close()
         sys.exit()
 
@@ -103,12 +111,19 @@ def arguments():
         sys.exit()
 
     if args.folder is not None:
-        global folder
         folder = args.folder
 
+    if args.exclude_file is not None:
+        global excluded_files
+        excluded_files = args.exclude_file
+
+    if args.exclude_file is None:
+        excluded_files = ["none"]
+
 def main():
+    user = getpass.getuser()
     global folder
-    folder = "/home/bostjan/Downloads/"
+    folder = "/home/{}/Downloads/".format(user)
     arguments()
     
     try:
@@ -128,7 +143,7 @@ def main():
         f.close()
     except:
         print "Something went wrog!\nProgram exited!"
-        #print sys.exc_info()[0]
+        print sys.exc_info()[0]
         sys.exit()
 
 if __name__ == "__main__":
