@@ -1,7 +1,6 @@
 # fileCleaner
-Program for cleaning files with specific endings.
-I've written this program for myself.<br>
-Fell free to use this program. <br>
+Program for cleaning files with specific endings.<br>
+I've written this program for myself. Fell free to use it. <br>
 
 <b>Warning</b><br>
 I don't guarantee that it will work for you. I'm also not responsible for damage (lost files, ...) that this program my cause.
