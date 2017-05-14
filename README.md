@@ -21,4 +21,4 @@ Program creates a log file (clearLog.txt, same folder where program is located),
 `-a, --add-endings [ending, ...] => Adds endigs you enter to the defaults.txt file.`<br> 
 `-r, --remove-endings [ending, ...] => Removes endings you enter from defaults.txt file.`<br>
 `-f, --folder [folder] => Specify folder in wich you want to delete files (default: /home/bostjan/Downloads/)`<br>
-`--walk => Walk thru directory tree, starting in specified folder (default: /home/USER/Downloads) and delete files.
+`--walk => Walk thru directory tree, starting in specified folder (default: /home/USER/Downloads) and delete files.`
