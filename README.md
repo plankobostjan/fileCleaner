@@ -1,7 +1,8 @@
 # fileCleaner
 Program for cleaning files with specific endings.
 I've written this program for myself.<br>
-Fell free to use this program. <b>BUT:</b> I don't guarantee that it will work for you. I'm also not responsible for damage (lost files, ...) that this program my cause.
+Fell free to use this program. <br>
+<b>BUT:</b> I don't guarantee that it will work for you. I'm also not responsible for damage (lost files, ...) that this program my cause.
 
 <b>Program does not permanently delete files. It sends them to trash.</b>
 
