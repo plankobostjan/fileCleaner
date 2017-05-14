@@ -6,6 +6,27 @@ import argparse
 import sys
 import getpass
 
+def walkDirectoryTree(endings, log, path):
+    log.write(time.strftime("\nOn %a %d.%m.%Y at %H:%M:%S:\n"))
+    print time.strftime("On %a %d.%m.%Y at %H:%M:%S:")
+    delete = 0
+    for folderName, subfolders, filenames in os.walk(path):
+        for filename in filenames:
+            for f in excluded_files:
+                if f != filename:
+                    for ending in endings:
+                       if  filename.endswith(ending):
+                           send2trash.send2trash(folderName + '/' + filename)
+                           log.write("{} in {} was send to trash.\n".format(filename, folderName))
+                           print "{} in {} was send to trash.".format(filename, folderName)
+                           delete += 1
+                else:
+                    print "File {} excluded.".format(f)
+                    log.write("File {} excluded.\n".format(f))
+    if delete == 0:
+        print "No files were deleted."
+        log.write("No files were deleted.\n")
+
 def deleteEmptyLines():
     with open('defaults.txt','a+') as f:
         for line in f:
@@ -70,6 +91,7 @@ def arguments():
     parser.add_argument("-r", "--remove-endings", nargs="+", type=str, help="Remove endings.")
     parser.add_argument("-f", "--folder", type=str, help="Specify folder in wich you want to delete files.")
     parser.add_argument("--exclude-file", type=str, nargs="+", help="Specify files to exclude.")
+    parser.add_argument("--walk", action="store_true", help="Walk thru directory tree and delete files.")
     args = parser.parse_args()
 
     if args.add_endings is not None:
@@ -111,7 +133,9 @@ def arguments():
         sys.exit()
 
     if args.folder is not None:
-        folder = args.folder
+        path = args.folder
+    else:
+        path = "/home/bostjan/Downloads"
 
     if args.exclude_file is not None:
         global excluded_files
@@ -120,24 +144,29 @@ def arguments():
     if args.exclude_file is None:
         excluded_files = ["none"]
 
+    if args.walk == True:
+        walkDirectoryTree(endings, log, path)
+        sys.exit()
+
 def main():
+    global endings
+    global log
+    global path
     user = getpass.getuser()
-    global folder
-    folder = "/home/{}/Downloads/".format(user)
+    path = "/home/{}/Downloads/".format(user)
+    f = file("defaults.txt", "r")
+    data = f.read()
+    if len(data) < 2:
+        print "File with endings is empty.\nPlease generate defaults or add endings yourself."
+        sys.exit()
+    else:
+        endings = data.split("\n")
+        while '' in endings:
+            endings.remove('')
+    log = file("clearLog.txt", "a+")
     arguments()
-    
     try:
-        f = file("defaults.txt", "r")
-        data = f.read()
-        if len(data) < 2:
-            print "File with endings is empty.\nPlease generate defaults or add endings yourself."
-            sys.exit()
-        else:
-            endings = data.split("\n")
-            while '' in endings:
-                endings.remove('')
-        path = folder
-        log = file("clearLog.txt", "a+")
+
         deleteFile(path, endings, log)
         log.close()
         f.close()
