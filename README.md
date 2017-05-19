@@ -10,7 +10,7 @@ I don't guarantee that the program will work for you. I'm also not responsible f
 <b>First run</b><br>
   When you run the program for the first time, you need to run `python fileCleaner.py -d` to create file with file endings. File is created in the same folder where program itself is located.
   
-<b>Logs</b>
+<b>Logs</b><br>
 Program creates a log file (clearLog.txt, same folder where program is located), where the data about deleted files is stored.
   
   <b>Two versions</b><br>
