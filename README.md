@@ -8,31 +8,27 @@ I don't guarantee that the program will work for you. I'm also not responsible f
 <b>Program does not permanently delete files. It sends them to trash.</b>
 
 <b>First run</b><br>
-  When you run the program for the first time, you need to run `python fileCleaner.py -d` to create file with file endings. File is created in the same folder where program itself is located.
+  When you run the program for the first time, you need to run it with `--set-defaults` option.
   
 <b>Logs</b><br>
 Program creates a log file (clearLog.txt, same folder where program is located), where the data about deleted files is stored.
   
-  <b>Two versions</b><br>
-  There are two different versions of the program. One (fileCleaner.py) saves data to text files, the other one (fileCleaner_db.py) saves data to the database.<b> For database version, you need to have MariaDB server installed. To create database run</b> `python fileCleaner_db.py --create-database`<b>.</b>
- 
-<b>Options for non-database version</b>
-
-`-d, --set-defaults => Creates a file (defaults.txt) with preditermined file endigs.`<br>
-`-l, --list-endings => Lists all endings, that are currently saved in endings file (defaults.txt)`<br>
-`-a, --add-endings [ending, ...] => Adds endigs you enter to the defaults.txt file.`<br> 
-`-r, --remove-endings [ending, ...] => Removes endings you enter from defaults.txt file.`<br>
-`-f, --folder [folder] => Specify folder in wich you want to delete files (default: /home/USER/Downloads/)`<br>
-`--walk [folder] => Walk thru directory tree, starting in specified folder (default: /home/USER/Downloads) and delete files.`
-
-<b>Options for the database version</b>
-
+<b>Two modes</b><br>
+ There are two different modes of the program. By default, data for the program (endings) are stored in text files. But, if you want, you can run program with `--database-mode` option. If you do so, all the data will be saved in the database. For the database mode, you need to have MariaDB server installed. To create database run `python fileCleaner_db.py --create-database`.
+  
+<b>Options for both modes</b><br>
 `-d, --set-defaults => Creates a file (defaults.txt) with preditermined file endigs.`<br>
 `--list-endings => Lists all endings, that are currently saved in endings file (defaults.txt)`<br>
-`--add-endings [ending ...] => Adds endigs you enter to the defaults.txt file.`<br> 
-`-r, --remove-endings [ending ...] => Removes endings you enter from defaults.txt file.`<br>
+`--add-endings [ending, ...] => Adds endigs you enter to the defaults.txt file.`<br> 
+`--remove-endings [ending, ...] => Removes endings you enter from defaults.txt file.`<br>
+`--walk [folder] => Walk thru directory tree, starting in specified folder (default: /home/USER/Downloads) and delete files.`
+ 
+<b>Options specific to non-database mode</b><br>
+`-f, --folder [folder] => Specify folder in wich you want to delete files (default: /home/USER/Downloads/)`<br>
+`--exclude-file [file, ...] => Specify files wich will be excluded.`
+
+<b>Options specific to the database mode</b><br>
 `--add-folders [folder ...] => Add folders in wich program will look for files to the database.`<br>
-`--walk [folder] => Walk thru directory tree, starting in specified folder (default: /home/USER/Downloads) and delete files.`<br>
 `--list-folders => List all current folders where progam will look for files.`<br>
 `--remove-folders [folder ...] => Remove specified folders from the database.`<br>
 `--add-excluded-folders [folder ...] => Add folders where program will not look for files to the database.`<br>
