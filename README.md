@@ -20,19 +20,19 @@ Program creates a log file (clearLog.txt, same folder where program is located),
 <b>Options for both modes</b><br>
 `-d, --set-defaults => Creates a file (defaults.txt) with preditermined file endigs.`<br>
 `--list-endings => Lists all endings, that are currently saved in endings file (defaults.txt)`<br>
-`--add-endings [ending, ...] => Adds endigs you enter to the defaults.txt file.`<br> 
-`--remove-endings [ending, ...] => Removes endings you enter from defaults.txt file.`<br>
-`--walk [folder] => Walk thru directory tree, starting in specified folder (default: /home/USER/Downloads) and delete files.`
+`--add-endings ENDING ... => Adds endigs you enter to the defaults.txt file.`<br> 
+`--remove-endings ENDING ... => Removes endings you enter from defaults.txt file.`<br>
+`--walk FOLDER => Walk thru directory tree, starting in specified folder (default: /home/USER/Downloads) and delete files.`
  
 <b>Options specific to non-database mode</b><br>
-`-f, --folder [folder] => Specify folder in wich you want to delete files (default: /home/USER/Downloads/)`<br>
-`--exclude-file [file, ...] => Specify files wich will be excluded.`
+`-f, --folder FOLDER => Specify folder in wich you want to delete files (default: /home/USER/Downloads/)`<br>
+`--exclude-file FILE ... => Specify files wich will be excluded.`
 
 <b>Options specific to the database mode</b><br>
-`--add-folders [folder ...] => Add folders in wich program will look for files to the database.`<br>
+`--add-folders FOLDER ... => Add folders in wich program will look for files to the database.`<br>
 `--list-folders => List all current folders where progam will look for files.`<br>
-`--remove-folders [folder ...] => Remove specified folders from the database.`<br>
-`--add-excluded-folders [folder ...] => Add folders where program will not look for files to the database.`<br>
+`--remove-folders FOLDER ... => Remove specified folders from the database.`<br>
+`--add-excluded-folders FOLDER ... => Add folders where program will not look for files to the database.`<br>
 `--list-excluded-folders => List all excluded folders.`<br>
 `--remove-excluded-folders => Remove specified excluded folders from the database.`<br>
 `--add-excluded-folders => Add files which won't be searched to the database.`<br>
