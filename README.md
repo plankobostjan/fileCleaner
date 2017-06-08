@@ -34,8 +34,8 @@ Program creates a log file (clearLog.txt, same folder where program is located),
 `--remove-folders FOLDER ... => Remove specified folders from the database.`<br>
 `--add-excluded-folders FOLDER ... => Add folders where program will not look for files to the database.`<br>
 `--list-excluded-folders => List all excluded folders.`<br>
-`--remove-excluded-folders => Remove specified excluded folders from the database.`<br>
-`--add-excluded-folders => Add files which won't be searched to the database.`<br>
+`--remove-excluded-folders FOLDER => Remove specified excluded folders from the database.`<br>
+`--add-excluded-folders FILE ... => Add files which won't be searched to the database.`<br>
 `--list-excluded-files => List all excluded files.`<br>
-`--remove-excluded-file => Delete specified files form the database.`<br>
+`--remove-excluded-file FILE => Delete specified files form the database.`<br>
 `--create-database => Create database in wich data will be stored`<br>
