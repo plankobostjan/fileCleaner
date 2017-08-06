@@ -39,3 +39,6 @@ Program creates a log file (clearLog.txt, same folder where program is located),
 `--list-excluded-files => List all excluded files.`<br>
 `--remove-excluded-file FILE => Delete specified files form the database.`<br>
 `--create-database => Create database in wich data will be stored`<br>
+
+ ## Donate
+ <a href='https://ko-fi.com/A623366N' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi4.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
