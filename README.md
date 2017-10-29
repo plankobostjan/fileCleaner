@@ -4,7 +4,7 @@ I've written this program for myself. Fell free to use it.<br>
 Some options are added just because of my curiosity.<br>
 
 <b>Warning</b><br>
-I don't guarantee that the program will work for you. I'm also not responsible for the damage (lost files, ...) that this program my cause.
+I don't guarantee that the program will work for you. I'm also not responsible for the damage (lost files, ...) that this program may cause.
 
 <b>Program does not permanently delete files. It sends them to trash.</b>
 
