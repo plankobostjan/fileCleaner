@@ -39,6 +39,3 @@ Program creates a log file (clearLog.txt, same folder where program is located),
 `--list-excluded-files => List all excluded files.`<br>
 `--remove-excluded-file FILE => Delete specified files form the database.`<br>
 `--create-database => Create database in wich data will be stored`<br>
-
- ## Donate
-[PayPal](https://paypal.me/plankobostjan)
